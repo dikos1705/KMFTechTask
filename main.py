@@ -10,7 +10,7 @@ app = FastAPI()
 
 
 
-@app.post("/parse_data/")
+@app.post("/parse_data/", response_model=ParseResponseModel)
 async def parse_data(data: StatementRequest):
     try:
         pdf_data = base64.b64decode(data.base64_pdf)
